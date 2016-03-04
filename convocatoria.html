@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="congreso de musicas andinas colombianas" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+		<meta name="description" content="El Congreso Nacional de Música Andina Colombiana es un espacio para el diálogo e intercambio de saberes en torno a las músicas colombianas.">
+		<meta name="author" content="congresomac">
+		<meta name="keywords" content"musica colombiana,investigacion musical,musica tradicional colombiana,musica andina colombiana">
+
+		<title>CONGRESOMAC2016</title>
+		<link rel="shortcut icon" href="img/phpThumb_generated_thumbnailico" />
+		<!-- CSS  -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script>
+			$().ready(function() {
+				// validate the comment form when it is submitted
+				$("#formu").validate();
+
+				// validate signup form on keyup and submit
+				$("#signupForm").validate({
+					rules : {
+						firstname : "required",
+						lastname : "required",
+						username : {
+							required : true,
+							minlength : 2
+						},
+						password : {
+							required : true,
+							minlength : 5
+						},
+						confirm_password : {
+							required : true,
+							minlength : 5,
+							equalTo : "#password"
+						},
+						email : {
+							required : true,
+							email : true
+						},
+						topic : {
+							required : "#newsletter:checked",
+							minlength : 2
+						},
+						agree : "required"
+					},
+					messages : {
+						firstname : "Please enter your firstname",
+						lastname : "Please enter your lastname",
+						username : {
+							required : "Please enter a username",
+							minlength : "Your username must consist of at least 2 characters"
+						},
+						password : {
+							required : "Please provide a password",
+							minlength : "Your password must be at least 5 characters long"
+						},
+						confirm_password : {
+							required : "Please provide a password",
+							minlength : "Your password must be at least 5 characters long",
+							equalTo : "Please enter the same password as above"
+						},
+						email : "Please enter a valid email address",
+						agree : "Please accept our policy",
+						topic : "Please select at least 2 topics"
+					}
+				});
+
+				// propose username by combining first- and lastname
+				$("#username").focus(function() {
+					var firstname = $("#firstname").val();
+					var lastname = $("#lastname").val();
+					if (firstname && lastname && !this.value) {
+						this.value = firstname + "." + lastname;
+					}
+				});
+
+				//code to hide topic selection, disable for demo
+				var newsletter = $("#newsletter");
+				// newsletter topics are optional, hide at first
+				var inital = newsletter.is(":checked");
+				var topics = $("#newsletter_topics")[inital ? "removeClass" : "addClass"]("gray");
+				var topicInputs = topics.find("input").attr("disabled", !inital);
+				// show when newsletter is checked
+				newsletter.click(function() {
+					topics[this.checked ? "removeClass" : "addClass"]("gray");
+					topicInputs.attr("disabled", !this.checked);
+				});
+			});
+			
+			
+			$(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+        
+			
+			
+			
+			
+		</script>
+
+		<style>
+			#formu {
+				width: 100%;
+			}
+			#commentForm label {
+				width: 250px;
+			}
+			#commentForm label.error, #commentForm input.submit {
+				margin-left: 253px;
+			}
+
+		</style>
+
+		<script>
+			(function(i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] ||
+				function() {
+					(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+			ga('create', 'UA-50591446-1', 'auto');
+			ga('send', 'pageview');
+
+		</script>
+	</head>
+	<body>
+
+		<nav  role="navigation">
+			<ul id="dropdown1" class="dropdown-content">
+				<li>
+					<a href="http://www.congresomac.com/mac2013.html">MAC2013</a>
+				</li>
+				<li>
+					<a href="http://www.congresomac.com/mac2014/">MAC2014</a>
+				</li>
+				<!--
+				<li class="divider"></li>
+				<li>
+				<a href="#!">three</a>
+				</li>
+				-->
+			</ul>
+			<div class="nav-wrapper container">
+				<a id="logo-container" href="http://www.congresomac.com/" class="brand-logo"><H5>CONGRESO MAC</H5></a>
+				<ul class="right hide-on-med-and-down">
+					<li>
+						<a href="http://www.congresomac.com/invitados/">INVITADOS</a>
+					</li>
+					<li>
+						<a href="http://www.congresomac.com/mac2014/descargas/">MEMORIAS</a>
+					</li>
+
+				</ul>
+				<ul class="right hide-on-med-and-down">
+					<li>
+						<a href="#">PROGRAMA</a>
+					</li>
+				</ul>
+				<ul class="right hide-on-med-and-down">
+					<li>
+						<a href="">CONVOCATORIA</a>
+					</li>
+
+					<li>
+						<a class="dropdown-button" href="#!" data-activates="dropdown1">CONGRESOS ANTERIORES<i class="material-icons right">arrow_drop_down</i></a>
+					</li>
+
+				</ul>
+
+				<ul id="nav-mobile" class="side-nav">
+					<li>
+						<a href="convocatoria.html">CONVOCATORIA</a>
+					</li>
+					<li>
+						<a href="http://www.congresomac.com/mac2014/mac2013.html">MAC 2013</a>
+
+					</li>
+					<li>
+						<a href="http://www.congresomac.com/mac2014/">MAC 2014</a>
+
+					</li>
+
+					<li>
+						<a href="convocatoria.html">PROGRAMA</a>
+					</li>
+					<li>
+						<a href="http://www.congresomac.com/invitados/">INVITADOS</a>
+					</li>
+					<li>
+						<a href="http://www.congresomac.com/mac2014/descargas/">MEMORIAS</a>
+					</li>
+
+				</ul>
+				<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+			</div>
+		</nav>
+
+		<!-- Dropdown Structure -->
+		<!--
+		<ul id="dropdown1" class="dropdown-content">
+		<li><a href="#!">one</a></li>
+		<li><a href="#!">two</a></li>
+		<li class="divider"></li>
+		<li><a href="#!">three</a></li>
+		</ul>
+		<nav>
+		<div class="nav-wrapper">
+		<a href="#!" class="brand-logo">Logo</a>
+		<ul class="right hide-on-med-and-down">
+		<li><a href="sass.html">Sass</a></li>
+		<li><a href="badges.html">Components</a></li>
+		<!-- Dropdown Trigger
+		<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+		</ul>
+		</div>
+		</nav>
+		-->
+	
+	
+
+		<div class="container">
+
+			
+  <div class="divider"></div>
+  <div class="section">
+    					 <div class="row">
+   
+    
+    <div class="col s12 m4 l8"><p>
+    <br />				
+<h4><div class="colorito" style="color: #428ECC">REGISTRATE PARA PARTICIPAR EN EL  <strong>  
+
+ M[A]C 2016</strong></div></h4></P>
+
+    
+    
+    
+  </div>
+    <div class="col s12 m4 l2">
+    <br />
+   <p class="flow-text"> <strong>    Formulario de registro </strong></p>
+ <a href="http://congresomac.com/registrate.html" class="waves-effect waves-light btn red" >REGISTRATE</a>
+   
+   
+    </div>
+  </div>
+
+    
+  </div>
+  
+			
+			
+			
+			
+		</div>
+
+		</div>
+
+		<div class="container">
+			<div class="section">
+
+				<div class="divider"></div>
+				  <div class="section">
+    					 <div class="row">
+   
+    
+    <div class="col s12 m4 l8"><p>
+    				
+<p class="flow-text" >
+						Con el interés de apoyar la difusión de trabajos investigativos
+						en <strong>músicas colombianas</strong> en el ámbito de <strong><i>pregrado y postgrado</strong></i>, el
+						comité académico del <strong>III Congreso MAC</strong> invita a  <strong>  estudiantes</strong> y  <strong>  profesionales</strong>
+						a presentar sus trabajos.
+						
+						
+						
+					</p>
+
+    
+    
+    
+  </div>
+    <div class="col s12 m4 l2">
+ <p class="flow-text"><strong> Descarga la convocatoria</strong></p> 
+ <a class="waves-effect waves-light btn" href="https://drive.google.com/file/d/0B-SIdrdNSrwpZXFiQ24yc2xaVGc/view?usp=sharing">descargar</a>
+
+   
+    </div>
+  </div>
+
+    
+  </div>
+  
+				
+			
+					
+					<p class="flow-text" style="text-align: justify">
+						
+						
+					<p class="flow-text"style="color: #428ECC"> <strong>  <i class="material-icons">chat_bubble</i> INVITACION A PRESENTACION DE TRABAJOS 2016</strong></p> 
+			<br />
+			<br />
+<p class="flow-text" style="text-align: justify">
+						Con el interés de apoyar la difusión de trabajos <strong>  <i> investigativos
+						en músicas colombianas</i></strong> en el ámbito de <strong>pregrado y postgrado</strong>,
+						el comité académico del <strong>III Congreso MAC</strong> invita a estudiantes
+						y profesionales a presentar sus trabajos.
+
+						En el sitio web <strong>  www.congresomac.com</strong> encontrará la información y
+						formularios de registro de la <strong>convocatoria</strong> para participar como ponentes,
+						y/o como asistentes al Congreso.
+
+					</p>
+			
+
+				<ul class="collapsible" data-collapsible="accordion">
+					<li>
+						<div class="collapsible-header">
+							<i class="material-icons">announcement</i><P class="flow-text">Quienes pueden presentar trabajos?</P>
+						</div>
+						<div class="collapsible-body">
+							<p class="flow-text" style="text-align: justify">
+								<strong>  Como ponente</strong> 
+								<br />
+Recién graduados o Estudiantes activos de programas
+ de <strong>  pregrado y posgrado </strong>en el área de<strong> artes, ciencias humanas, 
+ sociales</strong>, que hayan realizado trabajos de investigación que tengan 
+ como objeto o donde sea relevante el estudio las<strong> músicas colombianas</strong>. 
+ Dichos trabajos de investigación pueden ser de<strong> uno o varios autores/investigadores</strong>, 
+ y puede estar en curso o concluidos. 
+							</p>
+						</div>
+					</li>
+					<li>
+						<div class="collapsible-header">
+							<i class="material-icons">description</i><p class="flow-text">Áreas temáticas para la presentación de trabajos investigativos:</p>  
+						</div>
+						<div class="collapsible-body">
+							<p class="flow-text"style="text-align: justify">
+								
+Reflexión o análisis sobre las <strong>Músicas colombianas </strong>desde las diversas perspectivas 
+–<strong>musicológicos, históricos, antropológicos, sociológicos, educativos, psicológicos, 
+filosóficos</strong>, etc.-, teniendo en  cuenta la orientación del <strong>III Congreso MAC</strong> para  la 
+pertinencia y articulación de su trabajo al evento
+							</p>
+						</div>
+					</li>
+					<li>
+						<div class="collapsible-header">
+							<i class="material-icons">library_music</i><p class="flow-text">El Congreso sobre las Músicas [A] Colombianas</p>
+						</div>
+						<div class="collapsible-body">
+							<p class="flow-text"style="text-align: justify">
+								
+El  <strong>   MAC II de 2014</strong> abrió las brechas de escape al
+ pensamiento hegemónico alrededor de los llamados <strong>géneros andinos</strong>.
+  La valoración unívoca de <strong>“lo andino”</strong> se ha problematizado extrañándolo de su pathos 
+  nacionalista y colocándolo en términos  de funcionalidad, consumo y mercado frente a 
+  géneros que dialogan no solo con lo andino, sino con elementos<strong> denotativos/sintácticos </strong>
+  de la contemporaneidad sonora presente en la conformación <strong>poética de otras músicas locales</strong>, 
+  o que desde lo local se proyectan  globales en trasvases  continuos de sentido, de ida y vuelta.
+  <br />
+  
+  
+  
+  
+
+							</p>
+						</div>
+					</li>
+					
+					<li>
+						<div class="collapsible-header">
+							<i class="material-icons">live_help</i><p class="flow-text">Por que M[A]C</p>
+						</div>
+						<div class="collapsible-body">
+							<p class="flow-text" style="text-align: justify">
+								
+	Siguiendo la egida de los interrogantes que van quedando en el
+   rescoldo de los coloquios ginebrinos, hemos re-nombrado al <strong>MAC</strong>    como <strong>M[A]C</strong>, 
+   mutando la <strong>A</strong> de <strong>andina</strong>, dándole un modelo de ecuación dónde ésta <strong>[A]</strong> adquiere 
+   el valor de cualquier género musical. Damos el paso siguiente a incluir en estos 
+   corchetes las <strong>músicas</strong> colgadas de la cuerda del <strong>MAC I</strong> al <strong>II</strong>:
+   <strong><i> Acústicas, Artísticas, 
+   Alternativas, Aleatorias, Antiguas, Alienígenas, Asfálticas, Atemporales, Amorfas, Colombianas,  
+   Afroindigringomexieuroasiaoceánicas,  Anodinas, Alucinógenas, Music All Colombian ………</i></strong>
+   <br />
+   <br />
+El Congreso busca otear de forma <strong>   panóptica  realidades</strong> performativas y prácticas musicales 
+y <strong>estéticas</strong> que conviven sincrónicamente en múltiples estratos funcionales y de consumo,
+ integrando en el diálogo las voces de <strong>sabedores, poetas y académicos</strong>,   entendiendo que 
+ <strong>músicas y sonoridades </strong>se hacen parte  de dinámicas <strong>culturales,
+  sociales, históricas e ideológicas</strong> determinadas y determinantes proyectadas en 
+  la organización de sus gramáticas distintivas y, en su dimensión<strong> significativa/simbólica</strong>. 
+  
+
+							</p>
+						</div>
+					</li>
+					
+					
+			
+			
+								<li>
+						<div class="collapsible-header">
+							<i class="material-icons">question_answer</i><p class="flow-text">Cuál es el objetivo del M[A]C</p>
+						</div>
+						<div class="collapsible-body">
+							<p class="flow-text" style="text-align: justify">
+								
+El  <strong>   M[A]C III</strong>, tiene como objetivo abordar la construcción y 
+el funcionamiento de las <strong>retóricas en hibridación </strong> continua 
+ de los géneros locales  en la contemporaneidad, con modelos 
+ de trabajo que den cuenta de la <strong>intertextualidad e inter-discursividad</strong>, 
+ en el manejo de sus códigos <strong>sintácticos/denotativos</strong> y,  exacerbación,
+  descomposición y fragmentación de códigos compositivos referenciales de
+<strong>músicas</strong> locales y globales en marcos de <strong>transculturalidad</strong>.
+El <strong>Congreso </strong>pretende crear espacios de diálogo dentro de los cuales <strong>músicos, 
+gestores, sabedores y poetas</strong>, desde la práctica musical y la acotación 
+interdisciplinaria construyan y de-construyan  relatos alrededor de las 
+realidades performativas de las <strong>músicas locales</strong>. 
+<br />
+<br />
+Es importante para este 
+Congreso, el tratamiento <strong>casuístico</strong> que nos plantee caminos de estudio
+ proponiendo modelos epistémicos,  posibilitando la construcción de <strong>conocimiento</strong>
+  para acercarnos con los ojos abiertos a las dinámicas de la <strong>creación musical</strong> en el país.  
+
+
+
+
+
+							</p>
+						</div>
+					</li>
+							
+					
+					
+					
+					
+					
+					
+				</ul>
+				
+				
+				
+  <div class="divider"></div>
+  <div class="section">
+    
+    <p class="flow-text"style="color: #428ECC"> <strong>  <i class="material-icons">chat_bubble</i> SELECCIÓN DE TRABAJOS</strong></p>
+    
+    <p class="flow-text"style="text-align: justify">
+    Los trabajos investigativos considerados temáticamente pertinentes, 
+    serán seleccionados por el  <strong>   Comité académico</strong> del Congreso para ser 
+    presentados oralmente durante el mismo, y cada uno contará con un total 
+    de   <strong>  30 minutos – (20 minutos  presentación; 10 minutos espacio de preguntas).</strong>
+     Se podrá utilizar apoyo audiovisual o presentación power point si lo desea.
+<br />
+<br />
+El comité organizador del congreso como un <strong>estímulo </strong>  y reconocimiento al trabajo 
+investigativo <strong>exonerará  </strong>  a los Ponentes de los trabajos seleccionados del pago de la 
+<strong>inscripción al congreso. 
+<br />
+<br />
+ </strong>  El <strong>costo  de participación en transporte,
+ alojamiento y alimentación durante el congreso correrá por cuenta del asistente-ponente.</strong>
+
+Adicionalmente, y si así desea el ponente, puede realizar una  muestra 
+artística vinculada a su investigación en los horarios destinados para dichas
+ muestras. Lo anterior, tras previa verificación de lugar y recursos disponibles.
+Para ello debe hacer una petición por escrito al      correo <strong>congresomac@gmail.com</strong> 
+
+    
+    
+    </p>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    
+    <p class="flow-text"style="color: #428ECC"> <strong>  <i class="material-icons">chat_bubble</i> REQUISITOS PARA LA PRESENTACION DE TRABAJOS INVESTIGATIVOS AL III CONGRESO MAC</strong></p>
+    
+    
+    
+    <p class="flow-text"style="text-align: justify">
+    	Los interesados en participar como ponentes deberán enviar 
+<br />
+<br />
+1. un resumen sobre su trabajo, de máximo 600 palabras. Deben referenciar palabras clave -palabras o frases cortas, que ayuden a identificar los elementos o conceptos centrales el proyecto o trabajo-. 
+<br />
+<br />
+2. Presentar una hoja de vida con máximo una hoja de extensión
+
+Lo anterior, debe ser enviado al correo electrónico congresomac@gmail.com teniendo en cuenta el cronograma:
+<br />
+<br />
+
+<p class="flow-text"style="color: #428ECC"> <strong>   
+ Apertura de la Presentación de trabajos: 1 marzo de 2016.
+ <br />
+ <br />
+Cierre de la recepción de trabajos: 28 de marzo de 2016.
+<br />
+<br />
+Definición de propuestas aceptadas y publicación seleccionados en www.congresomac.com :
+ 1 de abril de 2016</strong>
+ </p>
+
+
+
+
+
+<P class="flow-text"style="text-align: justify">
+<i><ins>Para el envío del resumen recomendamos tener en cuenta las siguientes indicaciones:</ins> </i>
+<br />
+<br />
+ 
+Debe brindar un objetivo claro, el alcance, y los resultados del proyecto. 
+<br />
+<br />
+Se debe presentar un resumen claro y conciso del trabajo que se desea exponer; 
+se recomienda establecer el problema o temática sobre la cual se trabaja y que se desea 
+abordar. Adicionalmente, debe existir una indicación de los intereses, antecedentes y 
+proyecciones del proyecto. 
+<br />
+<br />
+El resumen debe permitir identificar la conexión con el campo o temáticas del Congreso, 
+resaltar el impacto en el panorama artístico y académico de manera concisa y directa. 
+<br />
+<br />
+ Se permitirá el envío de documentación visual o de audio (registro) del trabajo 
+  realizado que apoye el proyecto. Estos archivos deben ser anexados al escrito y
+   enviados al correo referenciado. 
+ 
+ <br />
+ <br />
+Los trabajos presentados serán publicados en las memorias del evento, las cuales
+ se encontrarán en la página del Congreso 2016 
+<br />
+
+<p class="flow-text" style="color: #428ECC"><strong>    Participación como asistente</strong></p> 
+
+
+<p class="flow-text">Se invita a estudiantes de pregrado y posgrado, profesores, creadores e 
+investigadores musicales interesados en la investigación musical desde el 
+ámbito de las músicas tradicionales, populares y urbanas colombianas.
+ La programación del Congreso, invitados, ponentes e información de inscripciones 
+ se encuentra en el sitio web <strong>   www.congresomac.com</strong> </p>
+
+
+    
+    
+    </p>
+  </div>
+ 	
+				
+				
+				
+				
+				<br />
+				<br />
+				<div class="divider"></div>
+
+
+			</div>
+		</div>
+
+	
+
+		<footer class="page-footer teal">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">CONGRESO MAC 2016</h5>
+						<p class="grey-text text-lighten-4">
+							“Músicas en Tránsito…
+							…Hibridaciones en Marcha”
+						</p>
+
+					</div>
+					<div class="col l3 s12">
+						<h5 class="white-text">APOYAN</h5>
+						<ul>
+							<li>
+
+							</li>
+							<li>
+								<a class="white-text" href="http://www.bandolitis.com/">Fundación Bandolitis</a>
+							</li>
+							<li>
+								<a class="white-text" href="http://www.cantoporlavida.org/">Fundación canto por la vida</a>
+							</li>
+							<li>
+								<a class="white-text" href=""</a>
+								</li>
+								</ul>
+								</div>
+								<!--
+								<div class="col l3 s12">
+								<h5 class="white-text">Connect</h5>
+								<ul>
+								<li>
+								<a class="white-text" href="#!">Link 1</a>
+								</li>
+								<li>
+								<a class="white-text" href="#!">Link 2</a>
+								</li>
+								<li>
+								<a class="white-text" href="#!">Link 3</a>
+								</li>
+								<li>
+								<a class="white-text" href="#!">Link 4</a>
+								</li>
+								</ul>
+								</div>
+								-->
+								</div>
+								</div>
+								<!--
+								<div class="row">
+
+								<div class="col s12 m4 l2" style="background-color: #FFFFFF ; height: 110px">
+								<p>
+
+								</p>
+					</div>
+					<div class="col s12 m4 l8 " style="background-color: #FFFFFF; height: 110px;">
+						<p>
+							<div class="center-align"><img class="responsive-img" src="img/mincultura.png" />
+							</div>
+
+						</p>
+					</div>
+					<div class="col s12 m4 l2"style="background-color: #FFFFFF; height: 110px;">
+						<p>
+
+						</p>
+					</div>
+				</div>
+				-->
+
+				<div class="row">
+					<div class="col s12">
+						<!--posible-->
+					</div>
+					<div class="col s6" style="height: 110px; background-color: #FFFFFF">
+
+						<p>
+							<div class="center-align"><img class="responsive-img" src="img/mincultura.png" />
+							</div>
+
+						</p>
+
+					</div>
+					<div class="col s6" style="height: 110px;background-color: #ffffff">
+						<div class="center-align" style="padding-top: 5px"><img class="responsive-img" src="img/logos_generales.jpg" />
+
+						</div>
+					</div>
+
+				</div>
+
+				<div class="footer-copyright" >
+					<div class="container">
+						Por <a class="brown-text text-lighten-3" href="https://twitter.com/kyntovam">@kyntovam</a>
+					</div>
+				</div>
+		</footer>
+
+		<!--  Scripts-->
+
+		<script src="js/materialize.js"></script>
+		<script src="js/init.js"></script>
+
+	</body>
+</html>
